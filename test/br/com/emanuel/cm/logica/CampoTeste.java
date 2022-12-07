@@ -1,4 +1,4 @@
-package br.com.emanuel.cm.modelo;
+package br.com.emanuel.cm.logica;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -67,13 +67,17 @@ public class CampoTeste {
 	}
 	
 	@Test //necessario para fazer o teste
-	void testeVizinhoDistancia2NaoVizinho() {
+	void testeNaoVizinho() {
 		Campo vizinho = new Campo(3,1);
 		boolean resultado = campo.adicionarVizinho(vizinho);
 		
 		assertFalse(resultado);	//se vier false  o resultado vai retornar bem sucessido
 		
 	}
+	
+	
+	
+	
 	
 	
 }

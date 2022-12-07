@@ -3,6 +3,8 @@ package br.com.emanuel.cm.logica;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.emanuel.cm.excecao.ExplosaoException;
+
 public class Campo {
 
 	private final int linha; 
@@ -22,7 +24,7 @@ public class Campo {
 		this.coluna = coluna;
 	}
 	
-	public boolean adicionarVizinho(Campo candidatoVizinho) {
+	boolean adicionarVizinho(Campo candidatoVizinho) {
 		boolean linhaDiferente = linha != candidatoVizinho.linha;
 		boolean colunaDiferente = coluna != candidatoVizinho.coluna;
 		boolean diagonal = linhaDiferente && colunaDiferente;
@@ -41,12 +43,38 @@ public class Campo {
 			return false;
 		}
 		
+	}
+
+	void alternarMarcacao() {
+		if(!aberto) {
+			marcado = !marcado;
+		}
+	}
+	
+	boolean abrir () {
 		
+		if(!aberto && !marcado) {
+			aberto = true;
 		
+		if(minado) {
+			throw new ExplosaoException(); //criamos essa excecao para quando o jogador abrir um campo minado, o normal é o jogador abrir um campo vazio, quando ele abrir o mindao causa a excecao
+		}
 		
+		if(vizinhancaSegura()) {
+			vizinhos.forEach(v -> v.abrir());
+		}
+		
+		return true;
+		
+		}else {
+			return false;
+		}
 		
 	}
 	
+	boolean vizinhancaSegura() {
+		return vizinhos.stream().noneMatch(v -> v.minado);
+	}
 	
 	
 }
