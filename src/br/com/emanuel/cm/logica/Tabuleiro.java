@@ -45,7 +45,7 @@ public class Tabuleiro {
 	}
 	
 	
-	
+	Campo campo;
 	
 	
 	
