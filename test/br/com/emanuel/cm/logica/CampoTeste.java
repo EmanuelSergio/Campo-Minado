@@ -8,7 +8,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import br.com.emanuel.cm.excecao.ExplosaoException;
-import br.com.emanuel.cm.logica.Campo;
 
 public class CampoTeste {
 
