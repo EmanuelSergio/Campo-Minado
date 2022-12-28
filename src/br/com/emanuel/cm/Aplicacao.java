@@ -11,7 +11,6 @@ public static void main(String[] args) {
 	new TabuleiroConsole(t);
 	
 	
-	System.out.println();
 	
 }
 }
